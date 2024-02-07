@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "lzr_token_backend": {
+      "main": "src/lzr_token_backend/main.mo",
+      "type": "motoko"
+    },
+    "lzr_token_frontend": {
+      "dependencies": [
+        "lzr_token_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/lzr_token_frontend/src/index.html"
+      },
+      "source": [
+        "src/lzr_token_frontend/assets",
+        "dist/lzr_token_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
