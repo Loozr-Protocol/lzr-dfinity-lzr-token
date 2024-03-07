@@ -1,7 +1,7 @@
 {
   "canisters": {
     "lzr_token_backend": {
-      "main": "src/lzr_token_backend/main.mo",
+      "main": "src/lzr_token_backend/ICRC1.mo",
       "type": "motoko"
     },
     "lzr_token_frontend": {
