@@ -8,6 +8,7 @@ import Time "mo:base/Time";
 import Int "mo:base/Int";
 import Nat8 "mo:base/Nat8";
 import Nat64 "mo:base/Nat64";
+import ExperimentalCycles "mo:base/ExperimentalCycles";
 
 actor class Ledger(init : { initial_mints : [{ account : { owner : Principal; subaccount : ?Blob }; amount : Nat }]; minting_account : { owner : Principal; subaccount : ?Blob }; token_name : Text; token_symbol : Text; decimals : Nat8; transfer_fee : Nat }) = this {
 
@@ -596,5 +597,11 @@ actor class Ledger(init : { initial_mints : [{ account : { owner : Principal; su
 
     public query func icrc2_allowance({ account : Account; spender : Account }) : async Allowance {
         allowance(account, spender, Nat64.fromNat(Int.abs(Time.now())));
+    };
+
+    public shared func deposit_cycles() : async () {
+        let amount = ExperimentalCycles.available();
+        let accepted = ExperimentalCycles.accept(amount);
+        assert (accepted == amount);
     };
 };
