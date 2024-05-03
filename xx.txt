@@ -1,0 +1,52 @@
+"( record {               
+    name = \"FattyBigJoe\";                         
+    symbol = \"FBJ\";                           
+    decimals = 3;                                           
+    fee = 1_000;                                        
+    max_supply = 1_000_000_000;                         
+    initial_balances = vec {                                
+        record {                                            
+            record {                                        
+                owner = principal \"r7inp-6aaaa-aaaaa-aaabq-cai\";   
+                subaccount = null;                          
+            };                                              
+            100_000_000                                     
+        }                                                   
+    };                                                             
+    min_burn_amount = 10_000;
+    minting_account = null;
+    advanced_settings = null;
+})"
+
+--argument "(record {
+    initial_mints = vec {
+        record {
+            account = record {
+                owner = principal \"2b34t-ql2zp-mxh3h-fakej-vwbb5-k5ymv-zq2kk-ofp7v-2g7yb-d5oiq-kae\";
+                subaccount = null;
+            };
+            amount = 1_000_000_000_000;
+        }
+    };
+    minting_account = record {
+        owner = principal \"2b34t-ql2zp-mxh3h-fakej-vwbb5-k5ymv-zq2kk-ofp7v-2g7yb-d5oiq-kae\";
+        subaccount = null;
+    };
+    token_name = \"Alfi Solomons\";
+    token_symbol = \"ALF\";
+    decimals = 18;
+    transfer_fee = 100;
+})"
+
+"(record {
+    to = record {
+        owner = principal \"2b34t-ql2zp-mxh3h-fakej-vwbb5-k5ymv-zq2kk-ofp7v-2g7yb-d5oiq-kae\";
+        subaccount = null;
+    }; 
+    amount = 10000000000000000000;
+})"
+
+'("2b34t-ql2zp-mxh3h-fakej-vwbb5-k5ymv-zq2kk-ofp7v-2g7yb-d5oiq-kae", "10000000000000000000")'
+
+
+dfx deploy lzr_token_backend --network ic --no-wallet --argument "(\"Loozr\", \"LZR\", 160000000000000000000000000)"
